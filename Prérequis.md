@@ -140,3 +140,11 @@ monTableau.map((el) => el * 2);
 
 En js on appelle `callback` une fonction de rappel, une fonction passée en paramètre
 d'une autre fonction.
+
+### Les modules en JS
+
+Les modules permettent de découper le code en plusieurs fichiers. Chaque fichier est un module.
+
+```js
+
+```
