@@ -68,3 +68,45 @@ const MonComposant = () => {
   );
 };
 ```
+
+### Afficher des composants a partir d'une liste
+
+Pour afficher une liste de composants, vous pouvez utiliser la méthode `map` sur un tableau.
+
+```jsx
+import React from "react";
+
+const Liste = () => {
+  const elements = ["Element 1", "Element 2", "Element 3"];
+
+  return (
+    <div>
+      {elements.map((element, index) => (
+        <div key={index}>{element}</div>
+      ))}
+    </div>
+  );
+};
+```
+
+### Affichage conditionnel
+
+Pour afficher un élément conditionnellement, vous pouvez utiliser un opérateur ternaire ou un `&&`.
+
+Une ternaire : `condition ? <element> : null`
+
+Un `&&` : `condition && <element>`
+
+```jsx
+import React from "react";
+const MonComposant = () => {
+  const [afficher, setAfficher] = useState(true);
+
+  return (
+    <div>
+      {afficher ? <div>Element affiché</div> : null}
+      {afficher && <div>Element affiché</div>}
+    </div>
+  );
+};
+```
