@@ -1,6 +1,8 @@
 import { useState } from "react";
 import "./App.css";
 import Expenses from "./components/expenses/Expenses";
+import Formulaire from "./components/formulaireExemple/Formulaire";
+import ChildToParent from "./components/childToParent/childToParent";
 
 const dummy_expenses = [
   {
@@ -27,9 +29,16 @@ const dummy_expenses = [
 function App() {
   // const [count, setCount] = useState(0);
   const [expenses, setExpenses] = useState(dummy_expenses);
+  const [Label, setLabel] = useState("test");
+
   return (
     <>
-      <Expenses items={expenses} />
+      {Label}
+      <ChildToParent updater={setLabel} />
+      <br />
+      <Formulaire />
+      {expenses.length > 0 && <Expenses items={expenses} />}
+      {expenses.length === 0 && <p>No expenses found.</p>}
     </>
   );
 }

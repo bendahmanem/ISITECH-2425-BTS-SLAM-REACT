@@ -5,6 +5,7 @@ const Expenses = ({ items }) => {
 
   return (
     <div>
+      <h1>Expenses</h1>
       {items.map((el) => (
         <>
           <ExpenseItem title={el.title} amount={el.amount} date={el.date} />
