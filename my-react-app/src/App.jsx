@@ -1,5 +1,6 @@
 // import { useState } from "react";
 import "./App.css";
+import Label from "./Composant";
 // Creeer un composant dans un fichier js different
 // l'importer avec la syntaxe import default
 
@@ -8,7 +9,11 @@ import "./App.css";
 function App() {
   // const [count, setCount] = useState(0);
 
-  return <>{/* inserer le composant */}</>;
+  return (
+    <>
+      <Label text="bonjour" nombre={3} />
+    </>
+  );
 }
 
 export default App;
