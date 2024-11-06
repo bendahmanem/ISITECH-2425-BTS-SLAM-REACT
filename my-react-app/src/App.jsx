@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import Expenses from "./components/expenses/Expenses";
 import AddExpense from "./components/expenses/AddExpense";
+import MyComponent from "./components/myComponent/MyComponent";
 
 const dummy_expenses = [
   {
@@ -31,9 +32,11 @@ function App() {
 
   return (
     <>
-      <AddExpense adder={setExpenses} />
-      {expenses.length > 0 && <Expenses items={expenses} />}
-      {expenses.length === 0 && <p>No expenses found.</p>}
+      <MyComponent />
+      <MyComponent />
+      <MyComponent />
+      <MyComponent />
+      <MyComponent />
     </>
   );
 }
