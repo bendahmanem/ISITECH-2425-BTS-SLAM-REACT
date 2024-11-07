@@ -15,6 +15,9 @@ import EditContact, { action as editAction } from "./routes/edit";
 import { action as destroyAction } from "./routes/destroy";
 import ThemeProvider from "./context/context";
 import Index from "./routes";
+import ProtectedRoute from "./routes/ProtectedRoute";
+import Login from "./routes/Login";
+import { AuthProvider } from "./context/authContext/AuthContext";
 
 const router = createBrowserRouter([
   {
@@ -29,17 +32,29 @@ const router = createBrowserRouter([
         children: [
           {
             index: true,
-            element: <Index />,
+            element: (
+              <ProtectedRoute>
+                <Index />
+              </ProtectedRoute>
+            ),
           },
           {
             path: "/contacts/:contactId",
-            element: <Contact />,
+            element: (
+              <ProtectedRoute>
+                <Contact />
+              </ProtectedRoute>
+            ),
             loader: contactLoader,
             action: contactAction,
           },
           {
             path: "contacts/:contactId/edit",
-            element: <EditContact />,
+            element: (
+              <ProtectedRoute>
+                <EditContact />
+              </ProtectedRoute>
+            ),
             loader: contactLoader,
             action: editAction,
           },
@@ -52,12 +67,18 @@ const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: "/login",
+    element: <Login />,
+  },
 ]);
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <ThemeProvider>
-      <RouterProvider router={router} />
-    </ThemeProvider>
+    <AuthProvider>
+      <ThemeProvider>
+        <RouterProvider router={router} />
+      </ThemeProvider>
+    </AuthProvider>
   </StrictMode>
 );
