@@ -18,6 +18,7 @@ import Index from "./routes";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import Login from "./routes/Login";
 import { AuthProvider } from "./context/authContext/AuthContext";
+import DemoContextProvider from "./context/demoContext/demoContext";
 
 const router = createBrowserRouter([
   {
@@ -75,10 +76,12 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <AuthProvider>
-      <ThemeProvider>
-        <RouterProvider router={router} />
-      </ThemeProvider>
-    </AuthProvider>
+    <DemoContextProvider>
+      <AuthProvider>
+        <ThemeProvider>
+          <RouterProvider router={router} />
+        </ThemeProvider>
+      </AuthProvider>
+    </DemoContextProvider>
   </StrictMode>
 );

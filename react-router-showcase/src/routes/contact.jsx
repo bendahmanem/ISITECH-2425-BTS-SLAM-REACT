@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { ThemeContext } from "../context/context.jsx";
 
 import { getContact, updateContact } from "../contacts.js";
+import { DemoContext } from "../context/demoContext/demoContext.jsx";
 
 export async function action({ request, params }) {
   const formData = await request.formData();
@@ -24,13 +25,11 @@ export async function loader({ params }) {
 
 export default function Contact() {
   const { contact } = useLoaderData();
-  const themeContext = useContext(ThemeContext);
-  console.log("themeContext: ", themeContext);
-
+  const demoContext = useContext(DemoContext);
+  console.log("contenu de demoContext dans contact.jsx: ", demoContext);
   return (
     <div id="contact">
       <div>
-        {themeContext.theme}
         <img
           key={contact.avatar}
           src={

@@ -8,7 +8,8 @@ import {
   useSubmit,
 } from "react-router-dom";
 import { createContact, getContacts } from "../contacts.js";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
+import { DemoContext } from "../context/demoContext/demoContext.jsx";
 
 export async function loader({ request }) {
   const url = new URL(request.url);
@@ -25,6 +26,8 @@ export default function Root() {
   const { contacts, q } = useLoaderData();
   const navigation = useNavigation();
   const submit = useSubmit();
+  const demoContext = useContext(DemoContext);
+  console.log("contenu de demoContext dans root.jsx: ", demoContext);
 
   const searching =
     navigation.location &&
